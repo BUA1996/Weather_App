@@ -81,8 +81,27 @@ const current = async (cityName, days) => {
     iconThree.src = forecast.forecastday[3].day.condition.icon;
     tempThree.textContent = forecast.forecastday[3].day.avgtemp_c + " °C";
 
+    //day - 4
+    const dayfour = document.querySelector('.dayfour');
+    const conditionfour = document.querySelector('.conditionfour');
+    const iconfour = document.querySelector('.iconfour');
+    const tempfour = document.querySelector('.tempfour')
+    const dayfourDate = forecast.forecastday[4].date;
+    dayfour.textContent = dateConvert(dayfourDate);
+    conditionfour.textContent = forecast.forecastday[4].day.condition.text;
+    iconfour.src = forecast.forecastday[4].day.condition.icon;
+    tempfour.textContent = forecast.forecastday[4].day.avgtemp_c + " °C";
 
-
+    //day - 5
+    const dayfive = document.querySelector('.dayfive');
+    const conditionfive = document.querySelector('.conditionfive');
+    const iconfive = document.querySelector('.iconfive');
+    const tempfive = document.querySelector('.tempfive')
+    const dayfiveDate = forecast.forecastday[5].date;
+    dayfive.textContent = dateConvert(dayfiveDate);
+    conditionfive.textContent = forecast.forecastday[5].day.condition.text;
+    iconfive.src = forecast.forecastday[5].day.condition.icon;
+    tempfive.textContent = forecast.forecastday[5].day.avgtemp_c + " °C";
 
 }
 
@@ -91,13 +110,13 @@ let citySearch = document.querySelector('#search-input');
 let searchButton = document.querySelector('#search-button');
 //onclick
 searchButton.addEventListener('click', () => {
-    current(citySearch.value.trim(), 5);
+    current(citySearch.value.trim(), 6);
 })
 //using enter on keyboard
 citySearch.addEventListener('keypress', function (event) {
     if (event.key === 'Enter' && citySearch !== ' ') {
-        current(citySearch.value.trim(), 5);
+        current(citySearch.value.trim(), 6);
     }
 })
-current("kampala", 5);
+current("kampala", 6);
 //console.log('isaac', current());
